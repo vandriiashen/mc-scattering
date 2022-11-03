@@ -1,0 +1,19 @@
+/gate/world/daughters/name phantom
+/gate/world/daughters/insert tessellated
+/gate/phantom/geometry/setPathToSTLFile data/avocado_stl/meat.stl
+/gate/phantom/setMaterial Meat
+
+/gate/phantom/daughters/name pit
+/gate/phantom/daughters/insert tessellated
+/gate/pit/geometry/setPathToSTLFile data/avocado_stl/pit.stl
+/gate/pit/setMaterial Pit
+
+/gate/phantom/daughters/name air
+/gate/phantom/daughters/insert tessellated
+/gate/air/geometry/setPathToSTLFile data/avocado_stl/air.stl
+/gate/air/setMaterial Vacuum
+
+/gate/phantom/placement/setTranslation  54.79206322 -39.45598842 51.44893042 mm
+/gate/phantom/placement/setRotationAxis 0 0 1
+/gate/phantom/placement/setRotationAngle 90 deg
+/gate/phantom/attachPhantomSD

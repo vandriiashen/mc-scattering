@@ -1,0 +1,13 @@
+.Gate/*
+*.out
+main.submit
+out/*
+data/cube/*
+!data/cube/phantom.mac
+data/avocado_stl/*
+!data/avocado_stl/phantom.mac
+!data/avocado_stl/make_stl_model.py
+data/avocado/*
+!data/avocado/phantom.mac
+!data/avocado/make_vol.py
+!data/avocado/materials.dat

@@ -1,0 +1,11 @@
+/control/verbose 0
+/run/verbose 0
+/run/particle/verbose 0
+
+#/run/particle/dumpCutValues
+/event/verbose 0
+/tracking/verbose 0
+
+/gate/generator/verbose 1
+/gate/source/verbose 1
+/run/particle/verbose 0

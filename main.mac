@@ -1,0 +1,63 @@
+#########################
+# SET MATERIAL DATABASE #
+#########################
+/gate/geometry/setMaterialDatabase data/GateMaterials.db
+
+#########
+# WORLD #
+#########
+/gate/world/geometry/setXLength 250. mm
+/gate/world/geometry/setYLength 250. mm
+/gate/world/geometry/setZLength 1700. mm
+/gate/world/setMaterial Vacuum
+
+/control/execute macro/CTScanner.mac
+
+#/control/execute data/cube/phantom.mac
+/control/execute data/avocado_stl/phantom.mac
+#/gate/waterCylinder/moves/insert rotation
+#/gate/waterCylinder/rotation/setSpeed 1. deg/s
+#/gate/waterCylinder/rotation/setAxis 0 0 1
+
+###########
+# PHYSICS #
+###########
+/control/execute macro/physics.mac
+
+#############
+# DIGITIZER #
+#############
+/control/execute macro/digitizer.mac
+
+##########
+# OUTPUT #
+##########
+/control/execute macro/output.mac
+
+#############
+# VERBOSITY #
+#############
+/control/execute macro/verbose.mac
+
+##################
+# INITIALIZATION #
+##################
+/gate/run/initialize
+
+############################
+# VISUALIZATION PARAMETERS #
+############################
+#/control/execute macro/visu.mac
+#/vis/disable
+
+##############
+# SOURCE GPS #
+##############
+/control/execute macro/source.mac
+
+###############
+# ACQUISITION #
+###############
+/control/execute macro/acquisition.mac
+
+exit

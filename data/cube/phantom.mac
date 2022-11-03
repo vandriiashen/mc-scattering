@@ -1,0 +1,18 @@
+/gate/world/daughters/name phantom
+/gate/world/daughters/insert box
+/gate/phantom/geometry/setXLength 68.424 mm
+/gate/phantom/geometry/setYLength 68.424 mm
+/gate/phantom/geometry/setZLength 68.424 mm
+/gate/phantom/setMaterial Aluminium
+
+#/gate/phantom/daughters/name cube2
+#/gate/phantom/daughters/insert box
+#/gate/cube2/geometry/setXLength 22.808 mm
+#/gate/cube2/geometry/setYLength 22.808 mm
+#/gate/cube2/geometry/setZLength 22.808 mm
+#/gate/cube2/setMaterial Vacuum
+
+/gate/phantom/placement/setTranslation  0. 0. 0. mm
+/gate/phantom/attachPhantomSD
+#/gate/cube2/placement/setTranslation  0. 0. 0. mm
+#/gate/cube2/attachPhantomSD
