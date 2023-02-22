@@ -6,18 +6,14 @@
 #########
 # WORLD #
 #########
-/gate/world/geometry/setXLength 250. mm
-/gate/world/geometry/setYLength 250. mm
-/gate/world/geometry/setZLength 1700. mm
+/gate/world/geometry/setXLength 90. mm
+/gate/world/geometry/setYLength 90. mm
+/gate/world/geometry/setZLength 450. mm
 /gate/world/setMaterial Vacuum
 
 /control/execute macro/CTScanner.mac
 
-#/control/execute data/cube/phantom.mac
-/control/execute data/avocado_stl/phantom.mac
-#/gate/waterCylinder/moves/insert rotation
-#/gate/waterCylinder/rotation/setSpeed 1. deg/s
-#/gate/waterCylinder/rotation/setAxis 0 0 1
+/control/execute data/cylinder/phantom.mac
 
 ###########
 # PHYSICS #

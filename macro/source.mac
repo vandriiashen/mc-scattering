@@ -1,12 +1,12 @@
 /gate/source/addSource xraygun
 /gate/source/verbose 0
-/gate/source/xraygun/setActivity 100000000. becquerel
+/gate/source/xraygun/setActivity 1000000. becquerel
 /gate/source/xraygun/gps/verbose 0
 /gate/source/xraygun/gps/particle gamma
 /gate/source/xraygun/gps/energytype Arb
 /gate/source/xraygun/gps/histname arb
-/gate/source/xraygun/gps/emin 10.00 keV
-/gate/source/xraygun/gps/emax 150.00 keV
+/gate/source/xraygun/gps/emin 10 keV
+/gate/source/xraygun/gps/emax 90 keV
 /gate/source/xraygun/gps/histpoint 0.010 0
 /gate/source/xraygun/gps/histpoint 0.011 0
 /gate/source/xraygun/gps/histpoint 0.012 0
@@ -93,7 +93,7 @@
 /gate/source/xraygun/gps/halfx 5. um
 /gate/source/xraygun/gps/halfy 5. um
 /gate/source/xraygun/gps/mintheta 0  deg
-/gate/source/xraygun/gps/maxtheta  3.6 deg
-/gate/source/xraygun/gps/centre -1.146 0.0927 -837. mm
+/gate/source/xraygun/gps/maxtheta  10.0 deg
+/gate/source/xraygun/gps/centre 0. 0. -200. mm
 /gate/source/xraygun/gps/angtype iso
 /gate/source/list

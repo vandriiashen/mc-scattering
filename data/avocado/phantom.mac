@@ -1,9 +1,0 @@
-/gate/world/daughters/name phantom
-/gate/world/daughters/insert ImageNestedParametrisedVolume
-/gate/phantom/geometry/setImage data/avocado/image.mhd
-/gate/phantom/geometry/setRangeToMaterialFile data/avocado/materials.dat
-
-/gate/phantom/placement/setTranslation  0. 0. 0. mm
-/gate/phantom/placement/setRotationAxis 1 0 0
-/gate/phantom/placement/setRotationAngle 90 deg
-/gate/phantom/attachPhantomSD

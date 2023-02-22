@@ -53,6 +53,12 @@ Vacuum: d=0.000001 mg/cm3 ; n=1
 
 Aluminium: d=2.7 g/cm3 ; n=1 ; state=solid
         +el: name=auto       ; n=1
+        
+Iron: d=7.874 g/cm3 ; n=1 ; state=solid
+        +el: name=Iron       ; n=1
+        
+Titanium: d=4.50 g/cm3 ; n=1 ; state=solid
+        +el: name=Titanium       ; n=1
 
 AluminiumEGS: d=2.702 g/cm3 ; n=1 ; state=solid
         +el: name=Aluminium  ; n=1
@@ -88,7 +94,7 @@ NaI: d=3.67 g/cm3; n=2;  state=solid
         +el: name=Sodium     ; n=1
         +el: name=Iodine     ; n=1
         
-CsI: d=4.51 g/cm3; n=2;  state=solid
+CsI: d=400.51 g/cm3; n=2;  state=solid
         +el: name=Cesium     ; n=1
         +el: name=Iodine     ; n=1
 
