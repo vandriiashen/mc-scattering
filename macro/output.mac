@@ -1,5 +1,5 @@
 /gate/output/tree/enable
-/gate/output/tree/addFileName /export/scratch1/vladysla/GateSimOutput/{ResName}.npy
+/gate/output/tree/addFileName {ResName}
 /gate/output/tree/hits/disable
 /gate/output/tree/addCollection Singles
 
@@ -18,7 +18,7 @@
 /gate/output/tree/Singles/branches/componentsIDs/disable
 
 #/gate/actor/addActor DoseActor          dose
-#/gate/actor/dose/save                   /export/scratch1/vladysla/GateSimOutput/dose/dose.mhd
+#/gate/actor/dose/save                   /path/to
 #/gate/actor/dose/attachTo               phantom
 #/gate/actor/dose/stepHitType            random
 #/gate/actor/dose/setSize                68.424 68.424 68.424 mm

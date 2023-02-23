@@ -1,6 +1,6 @@
 /gate/source/addSource xraygun
 /gate/source/verbose 0
-/gate/source/xraygun/setActivity 1000000. becquerel
+/gate/source/xraygun/setActivity 1000000000. becquerel
 /gate/source/xraygun/gps/verbose 0
 /gate/source/xraygun/gps/particle gamma
 /gate/source/xraygun/gps/energytype Arb

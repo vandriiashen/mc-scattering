@@ -3,8 +3,6 @@
 First, install spack
 ```
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
-cd spack/bin
-./spack install zlib
 source spack/share/spack/setup-env.sh
 ```
 

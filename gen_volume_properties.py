@@ -2,6 +2,18 @@ import numpy as np
 import itertools
 
 def gen_uniform(mode = 'test', beta_a = 1.1, beta_b = 1.0):
+    '''Generates a list of volume parameters.
+    The goal is to have a variety of different cylinders with different cavities inside.
+    One of the details to note is that cavity detection might depend on the cylinder thickness in the cavity location.
+    Beta distribution with these default parameters was used to make the distribution of these thicknesses in a set more uniform.
+    
+    :param mode: Mode of generation: training, validation, test
+    :type mode: :class:`str`
+    :param beta_a: Parameter of beta distribution
+    :type beta_a: :class:`float`
+    :param beta_b: Parameter of beta distribution
+    :type beta_b: :class:`float`
+    '''
     if mode == 'train':
         seed = 0
         num_per_r = 100

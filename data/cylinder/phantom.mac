@@ -1,20 +1,20 @@
 /gate/world/daughters/name phantom
 /gate/world/daughters/insert cylinder
 /gate/phantom/geometry/setRmin 0 mm
-/gate/phantom/geometry/setRmax 20.293728692926344 mm
-/gate/phantom/geometry/setHeight 33.646195855433376 mm
+/gate/phantom/geometry/setRmax 25.9831931118337 mm
+/gate/phantom/geometry/setHeight 54.07694486993808 mm
 /gate/phantom/geometry/setPhiStart 0 deg
 /gate/phantom/geometry/setDeltaPhi 360 deg
 /gate/phantom/setMaterial Plexiglass
 /gate/phantom/daughters/name cavity
 /gate/phantom/daughters/insert ellipsoid
-/gate/cavity/geometry/setXLength 0.3380100000959539 mm
-/gate/cavity/geometry/setYLength 0.3840621586469794 mm
-/gate/cavity/geometry/setZLength 0.3785698382762985 mm
+/gate/cavity/geometry/setXLength 0.09394764050033155 mm
+/gate/cavity/geometry/setYLength 0.09206099202650095 mm
+/gate/cavity/geometry/setZLength 0.12066180299973324 mm
 /gate/cavity/setMaterial Vacuum
 /gate/phantom/placement/setTranslation  0. 0. 0. mm
 /gate/phantom/placement/setRotationAxis 1 0 0
 /gate/phantom/placement/setRotationAngle 90 deg
 /gate/phantom/attachPhantomSD
-/gate/cavity/placement/setTranslation -19.279042258280025 0.0 -10.662752110989617 mm
+/gate/cavity/placement/setTranslation -1.8188235178283576 0.0 -6.743579450465808 mm
 /gate/cavity/attachPhantomSD
