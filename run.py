@@ -182,13 +182,17 @@ def check_coords(p_x, p_y, dim_x, dim_y):
         p_y = 0
     return p_x, p_y
     
-def analyze_numpy(out_folder, num):
+def analyze_numpy(out_folder, num, pixel_dim, scanner_xy):
     '''Reads the file with raw data and makes an image with 2D distributions of registered photons and only scatterd photons
     
     :param out_folder: Folder containing raw data files
     :type out_folder: :class:`pathlib.PosixPath`
     :param num: Number of the file to read (multiple processes produce multiple files)
     :type num: :class:`int`
+    :param pixel_dim: Number of pixels along x and y axes.
+    :type pixel_dim: :class:`Tuple`
+    :param scanner_xy: Width and height of the scanner in mm
+    :type scanner_xy: :class:`Tuple`
     '''
     data = np.load(out_folder / "res{}.Singles.npy".format(num))
     
@@ -294,18 +298,22 @@ def run_simulation(out_folder, num_proc):
         
     return proc_ids
 
-def write_intermediary_images(out_folder, proc_ids):
+def write_intermediary_images(out_folder, proc_ids, pixel_dim, scanner_xy):
     '''Makes projection images based on the data from every process.
     
     :param out_folder: Folder to write raw data
     :type out_folder: :class:`pathlib.PosixPath`
     :param proc_ids: List containing ids of processes. Numbers from this list will be used to read files with raw data.
     :type proc_ids: :class:`list`
+    :param pixel_dim: Number of pixels along x and y axes.
+    :type pixel_dim: :class:`Tuple`
+    :param scanner_xy: Width and height of the scanner in mm
+    :type scanner_xy: :class:`Tuple`
     '''
     for i in tqdm(proc_ids):
-        analyze_numpy(out_folder, i)
+        analyze_numpy(out_folder, i, pixel_dim, scanner_xy)
             
-def make_final_image(out_folder, proc_ids):
+def make_final_image(out_folder, proc_ids, pixel_dim):
     '''Makes projection images based on the data from all processes.
     Creates 4 files: all photons, photons that had Compton scattering, photons that had Rayleigh scattering, and scattered photons in general (Compton or Rayleigh)
     
@@ -313,9 +321,10 @@ def make_final_image(out_folder, proc_ids):
     :type out_folder: :class:`pathlib.PosixPath`
     :param proc_ids: List containing ids of processes. Numbers from this list will be used to read files with raw data.
     :type proc_ids: :class:`list`
+    :param pixel_dim: Number of pixels along x and y axes.
+    :type pixel_dim: :class:`Tuple`
     '''
-    dim_x = 250
-    dim_y = 275
+    dim_x, dim_y = pixel_dim
     proj = np.zeros((dim_y, dim_x), dtype=np.int32)
     proj_scat = np.zeros((dim_y, dim_x), dtype=np.int32)
     proj_r = np.zeros((dim_y, dim_x), dtype=np.int32)
@@ -339,11 +348,23 @@ material_spec = {
         'kv_end' : 450,
         'spectrum_fname' : 'data/spectra/spectrum_450kv.csv'
     },
+    'Iron300': {
+        'material' : 'Iron',
+        'kv_start' : 10,
+        'kv_end' : 300,
+        'spectrum_fname' : 'data/spectra/spectrum_300kv.csv'
+    },
     'Aluminium150': {
         'material' : 'Aluminium',
         'kv_start' : 10,
         'kv_end' : 150,
         'spectrum_fname' : 'data/spectra/spectrum_150kv.csv'
+    },
+    'Aluminium300': {
+        'material' : 'Aluminium',
+        'kv_start' : 10,
+        'kv_end' : 300,
+        'spectrum_fname' : 'data/spectra/spectrum_300kv.csv'
     },
     'Plexiglass90': {
         'material' : 'Plexiglass',
@@ -355,16 +376,22 @@ material_spec = {
     
 if __name__ == "__main__":
     # Only compute samples in this range (this way you can stop and resume computations)
-    start_sample = 800
-    end_sample = 1000
+    start_sample = 0
+    end_sample = 300
     # Create this number of processes to use multiple CPU cores
-    num_proc = 12   
+    num_proc = 60   
     # Generate volume properties using gen_volume_properties.py
-    data_spec = np.loadtxt('data/data_spec_train.csv', delimiter=',')
-    mat_par = material_spec['Plexiglass90']
+    data_spec = np.loadtxt('data/data_spec_test.csv', delimiter=',')
+    mat_par = material_spec['Iron300']
     total_particles = 10**9
-    tmp_folder = Path('/export/scratch1/vladysla/GateSimOutput/')
-    out_folder = Path('/export/scratch1/vladysla/pl90_train_800_1000/')
+    tmp_folder = Path('/export/scratch2/vladysla/GateSimOutput/')
+    out_folder = Path('/export/scratch2/vladysla/fe300_test_0_300/')
+    
+    # Default simulation settings
+    scanner_loc = (0., 0., 100.)
+    scanner_size = (75., 82.5, 10.)
+    pixel_size = 0.30
+    pixel_dim = (250, 275)
     
     out_folder.mkdir(exist_ok=True)
     (out_folder / 'proj').mkdir(exist_ok=True)
@@ -382,13 +409,13 @@ if __name__ == "__main__":
         with open(out_folder / 'stats.csv', 'a') as f:
             f.write("{},{},{},{},{},{},{},{},{}\n".format(i, size, cyl_r, cyl_h, cav_r, cav_z, *cav_sc))
             
-        write_scanner_mac()
+        write_scanner_mac(scanner_loc, scanner_size, pixel_size)
         write_phantom_mac(mat_par['material'], cyl_r, cyl_h, size, cavity_scale = cav_sc, cavity_loc = [cav_r, 0., cav_z])
         write_source_mac(mat_par, total_particles)
         
         proc_ids = run_simulation(tmp_folder, num_proc)
-        write_intermediary_images(tmp_folder, proc_ids)
-        make_final_image(tmp_folder, proc_ids)
+        write_intermediary_images(tmp_folder, proc_ids, pixel_dim, (scanner_size[0], scanner_size[1]))
+        make_final_image(tmp_folder, proc_ids, pixel_dim)
         
         shutil.copy(tmp_folder / 'proj.tiff', out_folder / 'proj' / '{:04d}.tiff'.format(i))
         shutil.copy(tmp_folder / 'proj_c.tiff', out_folder / 'compt' / '{:04d}.tiff'.format(i))

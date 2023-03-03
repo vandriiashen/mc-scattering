@@ -1,5 +1,6 @@
 .Gate/*
 *.out
+im_show.py
 main.submit
 out/*
 tmp_img/*

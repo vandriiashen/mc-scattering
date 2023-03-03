@@ -94,6 +94,6 @@
 /gate/source/xraygun/gps/halfy 5. um
 /gate/source/xraygun/gps/mintheta 0  deg
 /gate/source/xraygun/gps/maxtheta  10.0 deg
-/gate/source/xraygun/gps/centre 0. 0. -200. mm
+/gate/source/xraygun/gps/centre 0.0 0.0 -200.0 mm
 /gate/source/xraygun/gps/angtype iso
 /gate/source/list
