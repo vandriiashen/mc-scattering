@@ -366,8 +366,8 @@ material_spec = {
         'kv_end' : 300,
         'spectrum_fname' : 'data/spectra/spectrum_300kv.csv'
     },
-    'Plexiglass90': {
-        'material' : 'Plexiglass',
+    'PMMA90': {
+        'material' : 'PMMA',
         'kv_start' : 10,
         'kv_end' : 90,
         'spectrum_fname' : 'data/spectra/spectrum_90kv.csv'
