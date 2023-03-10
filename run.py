@@ -354,11 +354,11 @@ material_spec = {
         'kv_end' : 300,
         'spectrum_fname' : 'data/spectra/spectrum_300kv.csv'
     },
-    'Aluminium150': {
+    'Aluminium90': {
         'material' : 'Aluminium',
         'kv_start' : 10,
-        'kv_end' : 150,
-        'spectrum_fname' : 'data/spectra/spectrum_150kv.csv'
+        'kv_end' : 90,
+        'spectrum_fname' : 'data/spectra/spectrum_90kv.csv'
     },
     'Aluminium300': {
         'material' : 'Aluminium',
@@ -377,15 +377,15 @@ material_spec = {
 if __name__ == "__main__":
     # Only compute samples in this range (this way you can stop and resume computations)
     start_sample = 0
-    end_sample = 300
+    end_sample = 500
     # Create this number of processes to use multiple CPU cores
     num_proc = 60   
     # Generate volume properties using gen_volume_properties.py
-    data_spec = np.loadtxt('data/data_spec_test.csv', delimiter=',')
-    mat_par = material_spec['Iron300']
+    data_spec = np.loadtxt('data/data_spec_test2.csv', delimiter=',')
+    mat_par = material_spec['Iron450']
     total_particles = 10**9
     tmp_folder = Path('/export/scratch2/vladysla/GateSimOutput/')
-    out_folder = Path('/export/scratch2/vladysla/fe300_test_0_300/')
+    out_folder = Path('/export/scratch2/vladysla/fe450_test2_0_500/')
     
     # Default simulation settings
     scanner_loc = (0., 0., 100.)
