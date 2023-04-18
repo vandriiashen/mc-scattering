@@ -360,6 +360,12 @@ material_spec = {
         'kv_end' : 90,
         'spectrum_fname' : 'data/spectra/spectrum_90kv.csv'
     },
+    'Aluminium150': {
+        'material' : 'Aluminium',
+        'kv_start' : 10,
+        'kv_end' : 150,
+        'spectrum_fname' : 'data/spectra/spectrum_150kv.csv'
+    },
     'Aluminium300': {
         'material' : 'Aluminium',
         'kv_start' : 10,
@@ -371,27 +377,45 @@ material_spec = {
         'kv_start' : 10,
         'kv_end' : 90,
         'spectrum_fname' : 'data/spectra/spectrum_90kv.csv'
+    },
+    'PMMA150': {
+        'material' : 'PMMA',
+        'kv_start' : 10,
+        'kv_end' : 150,
+        'spectrum_fname' : 'data/spectra/spectrum_150kv.csv'
+    },
+    'PMMA40': {
+        'material' : 'PMMA',
+        'kv_start' : 10,
+        'kv_end' : 40,
+        'spectrum_fname' : 'data/spectra/spectrum_40kv.csv'
     }
 }
     
 if __name__ == "__main__":
     # Only compute samples in this range (this way you can stop and resume computations)
     start_sample = 0
-    end_sample = 500
+    end_sample = 50
     # Create this number of processes to use multiple CPU cores
-    num_proc = 60   
+    num_proc = 60  
     # Generate volume properties using gen_volume_properties.py
-    data_spec = np.loadtxt('data/data_spec_test2.csv', delimiter=',')
-    mat_par = material_spec['Iron450']
+    data_spec = np.loadtxt('data/data_spec_train.csv', delimiter=',')
+    mat_par = material_spec['Aluminium150']
     total_particles = 10**9
     tmp_folder = Path('/export/scratch2/vladysla/GateSimOutput/')
-    out_folder = Path('/export/scratch2/vladysla/fe450_test2_0_500/')
+    out_folder = Path('/export/scratch2/vladysla/al150_train_0_500/')
     
     # Default simulation settings
     scanner_loc = (0., 0., 100.)
     scanner_size = (75., 82.5, 10.)
     pixel_size = 0.30
     pixel_dim = (250, 275)
+    
+    # Smaller air gap
+    #scanner_loc = (0., 0., 50.)
+    #scanner_size = (62.5, 68.75, 10.)
+    #pixel_size = 0.25
+    #pixel_dim = (250, 275)
     
     out_folder.mkdir(exist_ok=True)
     (out_folder / 'proj').mkdir(exist_ok=True)

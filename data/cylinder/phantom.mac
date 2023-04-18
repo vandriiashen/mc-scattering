@@ -1,20 +1,20 @@
 /gate/world/daughters/name phantom
 /gate/world/daughters/insert cylinder
 /gate/phantom/geometry/setRmin 0 mm
-/gate/phantom/geometry/setRmax 18.307820081412086 mm
-/gate/phantom/geometry/setHeight 45.59314397448449 mm
+/gate/phantom/geometry/setRmax 12.805396282831394 mm
+/gate/phantom/geometry/setHeight 21.371572728901224 mm
 /gate/phantom/geometry/setPhiStart 0 deg
 /gate/phantom/geometry/setDeltaPhi 360 deg
-/gate/phantom/setMaterial Iron
+/gate/phantom/setMaterial PMMA
 /gate/phantom/daughters/name cavity
 /gate/phantom/daughters/insert ellipsoid
-/gate/cavity/geometry/setXLength 1.298998025678825 mm
-/gate/cavity/geometry/setYLength 0.7671232311018795 mm
-/gate/cavity/geometry/setZLength 0.7012752368899166 mm
+/gate/cavity/geometry/setXLength 0.07721179367279013 mm
+/gate/cavity/geometry/setYLength 0.0877684118513287 mm
+/gate/cavity/geometry/setZLength 0.07712366313725465 mm
 /gate/cavity/setMaterial Vacuum
 /gate/phantom/placement/setTranslation  0. 0. 0. mm
 /gate/phantom/placement/setRotationAxis 1 0 0
 /gate/phantom/placement/setRotationAngle 90 deg
 /gate/phantom/attachPhantomSD
-/gate/cavity/placement/setTranslation 0.9153910040706051 0.0 7.574287884265671 mm
+/gate/cavity/placement/setTranslation -6.018536252930755 0.0 -3.713405436407383 mm
 /gate/cavity/attachPhantomSD

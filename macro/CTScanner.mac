@@ -1,36 +1,36 @@
 /gate/world/daughters/name CTscanner
 /gate/world/daughters/insert box
-/gate/CTscanner/placement/setTranslation 0.0 0.0 100.0 mm
-/gate/CTscanner/geometry/setXLength 75.0 mm
-/gate/CTscanner/geometry/setYLength 82.5 mm
-/gate/CTscanner/geometry/setZLength 10.0 mm
+/gate/CTscanner/placement/setTranslation 0.0 0.0 20.0 mm
+/gate/CTscanner/geometry/setXLength 125.0 mm
+/gate/CTscanner/geometry/setYLength 137.5 mm
+/gate/CTscanner/geometry/setZLength 1.0 mm
 /gate/CTscanner/setMaterial Vacuum
 /gate/CTscanner/vis/forceWireframe
 /gate/CTscanner/vis/setColor white
 
 /gate/CTscanner/daughters/name module
 /gate/CTscanner/daughters/insert box
-/gate/module/geometry/setXLength 75.0 mm
-/gate/module/geometry/setYLength 82.5 mm
-/gate/module/geometry/setZLength 10.0 mm
+/gate/module/geometry/setXLength 125.0 mm
+/gate/module/geometry/setYLength 137.5 mm
+/gate/module/geometry/setZLength 1.0 mm
 /gate/module/setMaterial Vacuum
 /gate/module/vis/forceWireframe
 /gate/module/vis/setColor white
 
 /gate/module/daughters/name cluster
 /gate/module/daughters/insert box
-/gate/cluster/geometry/setXLength 75.0 mm
-/gate/cluster/geometry/setYLength 82.5 mm
-/gate/cluster/geometry/setZLength 10.0 mm
+/gate/cluster/geometry/setXLength 125.0 mm
+/gate/cluster/geometry/setYLength 137.5 mm
+/gate/cluster/geometry/setZLength 1.0 mm
 /gate/cluster/setMaterial Vacuum
 /gate/cluster/vis/forceWireframe
 /gate/cluster/vis/setColor white
 
 /gate/cluster/daughters/name pixel
 /gate/cluster/daughters/insert box
-/gate/pixel/geometry/setXLength 0.3 mm
-/gate/pixel/geometry/setYLength 0.3 mm
-/gate/pixel/geometry/setZLength 10.0 mm
+/gate/pixel/geometry/setXLength 0.5 mm
+/gate/pixel/geometry/setYLength 0.5 mm
+/gate/pixel/geometry/setZLength 1.0 mm
 /gate/pixel/setMaterial CsI
 /gate/pixel/vis/setColor red
 /gate/pixel/vis/setVisible 0
@@ -39,7 +39,7 @@
 /gate/pixel/cubicArray/setRepeatNumberX 250
 /gate/pixel/cubicArray/setRepeatNumberY 275
 /gate/pixel/cubicArray/setRepeatNumberZ   1
-/gate/pixel/cubicArray/setRepeatVector 0.3 0.3 0.0 mm
+/gate/pixel/cubicArray/setRepeatVector 0.5 0.5 0.0 mm
 /gate/pixel/cubicArray/autoCenter true
 /gate/systems/CTscanner/module/attach module
 /gate/systems/CTscanner/cluster_0/attach cluster

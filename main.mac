@@ -6,8 +6,8 @@
 #########
 # WORLD #
 #########
-/gate/world/geometry/setXLength 90. mm
-/gate/world/geometry/setYLength 90. mm
+/gate/world/geometry/setXLength 150. mm
+/gate/world/geometry/setYLength 150. mm
 /gate/world/geometry/setZLength 450. mm
 /gate/world/setMaterial Vacuum
 
